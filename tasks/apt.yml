@@ -19,6 +19,19 @@
     autoremove: yes
   tags: packages
 
+- name: Install qemu-guest-agent
+  apt:
+    name: qemu-guest-agent
+    state: present
+  tags: proxmox-agent
+
+- name: Enable and start qemu-guest-agent
+  service:
+    name: qemu-guest-agent
+    state: started
+    enabled: yes
+  tags: proxmox-agent
+
 - name: Install dependencies base with apt
   apt:
     name: "{{ debian_packages }}"

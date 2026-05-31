@@ -10,6 +10,26 @@
     state: present
   tags: packages
 
+- name: Enable Alpine community repository
+  replace:
+    path: /etc/apk/repositories
+    regexp: '^#(.*community.*)$'
+    replace: '\1'
+  tags: proxmox-agent
+
+- name: Install qemu-guest-agent
+  apk:
+    name: qemu-guest-agent
+    update_cache: yes
+    state: present
+  tags: proxmox-agent
+
+- name: Enable qemu-guest-agent at boot
+  service:
+    name: qemu-guest-agent
+    enabled: yes
+  tags: proxmox-agent
+
 - name: Set system locale
   lineinfile:
     path: /etc/profile.d/00locale.sh

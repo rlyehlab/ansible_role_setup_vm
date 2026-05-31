@@ -10,6 +10,19 @@
     autoremove: yes
   tags: packages
 
+- name: Install qemu-guest-agent
+  dnf:
+    name: qemu-guest-agent
+    state: present
+  tags: proxmox-agent
+
+- name: Enable and start qemu-guest-agent
+  service:
+    name: qemu-guest-agent
+    state: started
+    enabled: yes
+  tags: proxmox-agent
+
 - name: install dependencies base with dnf
   dnf:
     name: "{{ fedora_packages }}"

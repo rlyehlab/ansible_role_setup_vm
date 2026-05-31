@@ -1,10 +1,16 @@
 ---
+- name: Create /etc/skel
+  file:
+    path: /etc/skel
+    state: directory
+    mode: '0755'
+  tags: packages
+
 - name: grml
   get_url:
-    url: https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
+    url: https://raw.githubusercontent.com/grml/grml-etc-core/master/etc/zsh/zshrc
     dest: /etc/skel/.zshrc
     mode: '0644'
-    checksum: sha256:https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc.sha256
   tags: packages
 
 - name: Set timezone

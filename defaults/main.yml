@@ -37,6 +37,7 @@ fedora_packages:
   - nfs-utils
 
 alpine_packages:
+  - tzdata
   - htop
   - netcat-openbsd
   - vim
@@ -47,21 +48,17 @@ alpine_packages:
   - rsync
   - lsof
   - iftop
-  - iotop
   - bzip2
   - ncdu
   - bind-tools
   - mc
-  - plocate
   - fail2ban
   - wget
   - curl
   - jq
-  - pv
   - tcpdump
   - wireguard-tools
   - tree
-  - bat
   - nfs-utils
   - open-iscsi
   - musl-locales

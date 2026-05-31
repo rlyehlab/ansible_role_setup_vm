@@ -1,11 +1,11 @@
 ---
-- include_tasks: dnf.yml
+- import_tasks: dnf.yml
   when: ansible_distribution == "Fedora"
 
-- include_tasks: apt.yml
+- import_tasks: apt.yml
   when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
 
-- include_tasks: apk.yml
+- import_tasks: apk.yml
   when: ansible_distribution == "Alpine"
 
-- include_tasks: common.yml
+- import_tasks: common.yml
