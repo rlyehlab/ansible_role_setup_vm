@@ -6,6 +6,7 @@ Ansible role that provisions a baseline VM with a common set of tools and system
 
 - Upgrades all system packages
 - Installs a curated set of CLI tools (see [Variables](#variables))
+- Installs and enables `qemu-guest-agent` for Proxmox/QEMU environments
 - Configures timezone
 - Configures locales
 - Deploys [Grml zshrc](https://grml.org/zsh/) to `/etc/skel/.zshrc`
@@ -70,6 +71,7 @@ Run only specific parts of the role with `--tags`:
 | Tag | What it runs |
 |---|---|
 | `packages` | System upgrade + package installation + Grml zshrc |
+| `proxmox-agent` | Install and enable `qemu-guest-agent` |
 | `locale` | Locale generation and system locale setting |
 | `timezone` | Timezone configuration |
 
