@@ -1,0 +1,20 @@
+---
+- name: Upgrade all packages
+  apk:
+    upgrade: yes
+  tags: packages
+
+- name: Install dependencies base with apk
+  apk:
+    name: "{{ alpine_packages }}"
+    state: present
+  tags: packages
+
+- name: Set system locale
+  lineinfile:
+    path: /etc/profile.d/00locale.sh
+    regexp: "^export LANG="
+    line: "export LANG={{ vm_locales[0] }}"
+    create: yes
+    mode: '0644'
+  tags: locale

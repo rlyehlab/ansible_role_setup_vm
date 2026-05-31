@@ -1,0 +1,28 @@
+---
+galaxy_info:
+  author: odradek
+  description: Baseline VM setup for Fedora and Debian/Ubuntu systems
+  license: MIT
+  min_ansible_version: "2.12"
+
+  platforms:
+    - name: Fedora
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: Alpine
+      versions:
+        - all
+
+  galaxy_tags:
+    - system
+    - packages
+    - locale
+    - timezone
+
+dependencies: []

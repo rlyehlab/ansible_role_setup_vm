@@ -1,0 +1,26 @@
+---
+- name: Ensure a locale exists
+  locale_gen:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ vm_locales }}"
+  tags: locale
+
+- name: Full upgrade apt
+  apt:
+    upgrade: full
+    update_cache: yes
+    cache_valid_time: 3600
+    autoclean: yes
+  tags: packages
+
+- name: autoremove
+  apt:
+    autoremove: yes
+  tags: packages
+
+- name: Install dependencies base with apt
+  apt:
+    name: "{{ debian_packages }}"
+    state: present
+  tags: packages

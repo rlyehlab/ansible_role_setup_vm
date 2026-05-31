@@ -1,0 +1,13 @@
+---
+- name: grml
+  get_url:
+    url: https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
+    dest: /etc/skel/.zshrc
+    mode: '0644'
+    checksum: sha256:https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc.sha256
+  tags: packages
+
+- name: Set timezone
+  timezone:
+    name: "{{ vm_timezone }}"
+  tags: timezone

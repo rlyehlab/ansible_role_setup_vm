@@ -1,0 +1,97 @@
+---
+ansible_python_interpreter: auto
+
+vm_timezone: America/Argentina/Buenos_Aires
+vm_locales:
+  - es_AR.UTF-8
+  - en_US.UTF-8
+
+fedora_packages:
+  - htop
+  - nc
+  - vim
+  - nano
+  - chrony
+  - tmux
+  - zsh
+  - git
+  - rsync
+  - lsof
+  - iftop
+  - iotop
+  - bzip2
+  - ncdu
+  - bind-utils
+  - mc
+  - plocate
+  - fail2ban
+  - wget
+  - curl
+  - jq
+  - pv
+  - tcpdump
+  - wireguard-tools
+  - tree
+  - bat
+  - iscsi-initiator-utils
+  - nfs-utils
+
+alpine_packages:
+  - htop
+  - netcat-openbsd
+  - vim
+  - nano
+  - tmux
+  - zsh
+  - git
+  - rsync
+  - lsof
+  - iftop
+  - iotop
+  - bzip2
+  - ncdu
+  - bind-tools
+  - mc
+  - plocate
+  - fail2ban
+  - wget
+  - curl
+  - jq
+  - pv
+  - tcpdump
+  - wireguard-tools
+  - tree
+  - bat
+  - nfs-utils
+  - open-iscsi
+  - musl-locales
+  - musl-locales-lang
+
+debian_packages:
+  - htop
+  - netcat-openbsd
+  - vim
+  - nano
+  - apt-transport-https
+  - tmux
+  - zsh
+  - rsync
+  - lsof
+  - iftop
+  - iotop
+  - bzip2
+  - ncdu
+  - dnsutils
+  - mc
+  - plocate
+  - fail2ban
+  - wget
+  - curl
+  - jq
+  - pv
+  - tcpdump
+  - wireguard-tools
+  - tree
+  - nfs-common
+  - open-iscsi
+  - bat

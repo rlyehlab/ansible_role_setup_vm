@@ -1,0 +1,29 @@
+---
+- name: upgrade all packages
+  dnf:
+    name: "*"
+    state: latest
+  tags: packages
+
+- name: autoremove
+  dnf:
+    autoremove: yes
+  tags: packages
+
+- name: install dependencies base with dnf
+  dnf:
+    name: "{{ fedora_packages }}"
+    state: present
+  tags: packages
+
+- name: Install locale langpacks
+  dnf:
+    name: "{{ vm_locales | map('regex_replace', '^([a-z]+)_.*', 'glibc-langpack-\\1') | list }}"
+    state: present
+  tags: locale
+
+- name: Set system locale
+  copy:
+    dest: /etc/locale.conf
+    content: "LANG={{ vm_locales[0] }}\n"
+  tags: locale
