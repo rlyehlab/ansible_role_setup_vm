@@ -35,6 +35,7 @@ fedora_packages:
   - bat
   - iscsi-initiator-utils
   - nfs-utils
+  - cloud-init
 
 alpine_packages:
   - tzdata
@@ -63,6 +64,7 @@ alpine_packages:
   - open-iscsi
   - musl-locales
   - musl-locales-lang
+  - cloud-init
 
 debian_packages:
   - htop
@@ -92,3 +94,4 @@ debian_packages:
   - nfs-common
   - open-iscsi
   - bat
+  - cloud-init
