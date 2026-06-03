@@ -17,3 +17,14 @@
   timezone:
     name: "{{ vm_timezone }}"
   tags: timezone
+
+- name: Disable SSH password authentication
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?PasswordAuthentication'
+    line: 'PasswordAuthentication no'
+    state: present
+    validate: '/usr/sbin/sshd -t -f %s'
+  notify: restart sshd
+  when: vm_ssh_disable_password_auth | bool
+  tags: ssh

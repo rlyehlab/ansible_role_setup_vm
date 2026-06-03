@@ -10,6 +10,7 @@ Ansible role that provisions a baseline VM with a common set of tools and system
 - Configures timezone
 - Configures locales
 - Deploys [Grml zshrc](https://grml.org/zsh/) to `/etc/skel/.zshrc`
+- Disables SSH password authentication
 
 ## Requirements
 
@@ -27,6 +28,7 @@ All variables are defined in `defaults/main.yml` and can be overridden.
 | `fedora_packages` | see defaults | Packages installed via `dnf` on Fedora |
 | `alpine_packages` | see defaults | Packages installed via `apk` on Alpine |
 | `debian_packages` | see defaults | Packages installed via `apt` on Debian/Ubuntu |
+| `vm_ssh_disable_password_auth` | `true` | Disable SSH password authentication in `sshd_config` |
 
 ## Usage
 
@@ -74,6 +76,7 @@ Run only specific parts of the role with `--tags`:
 | `proxmox-agent` | Install and enable `qemu-guest-agent` |
 | `locale` | Locale generation and system locale setting |
 | `timezone` | Timezone configuration |
+| `ssh` | Disable SSH password authentication |
 
 ```
 ansible-playbook site.yml --tags timezone
